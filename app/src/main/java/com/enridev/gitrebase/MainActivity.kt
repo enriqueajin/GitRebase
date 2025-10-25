@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
                         myEmailRefactored = "enrique@enridev.com",
                         isEnabled = false
                     )
-                    Greeting(
+                    GreetingText(
                         modifier = Modifier.padding(innerPadding),
                         person = person,
                     )
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(person: MyRefactoredPerson, modifier: Modifier = Modifier) {
+fun GreetingText(person: MyRefactoredPerson, modifier: Modifier = Modifier) {
     with(person) {
         Text(
             text = "Hello, my name is $myNameRefactored I'm $person.myAgeRefactored and my email is $myEmailRefactored",
@@ -66,6 +66,6 @@ fun GreetingPreview() {
         isEnabled = false
     )
     GitRebaseTheme {
-        Greeting(person)
+        GreetingText(person)
     }
 }
