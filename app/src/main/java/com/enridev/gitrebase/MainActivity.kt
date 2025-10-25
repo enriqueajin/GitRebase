@@ -38,10 +38,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(person: MyRefactoredPerson, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello, my name is ${person.myNameRefactored} I'm ${person.myAgeRefactored} and my email is ${person.myEmailRefactored}",
-        modifier = modifier
-    )
+    with(person) {
+        Text(
+            text = "Hello, my name is $myNameRefactored I'm $person.myAgeRefactored and my email is $myEmailRefactored",
+            modifier = modifier
+        )
+    }
 
 }
 
