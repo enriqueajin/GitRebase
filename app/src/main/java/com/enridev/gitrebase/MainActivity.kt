@@ -20,9 +20,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             GitRebaseTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    val person = Person(
+                        name = "Enrique",
+                        age = 30,
+                        email = "enrique@enridev.com"
+                    )
                     Greeting(
                         modifier = Modifier.padding(innerPadding),
-                        text = "Hello world!",
+                        person = person,
                     )
                 }
             }
@@ -31,9 +36,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(text: String, modifier: Modifier = Modifier) {
+fun Greeting(person: Person, modifier: Modifier = Modifier) {
     Text(
-        text = text,
+        text = "Hello, my name is ${person.name} I'm ${person.age} and my email is ${person.email}",
         modifier = modifier
     )
 
@@ -43,6 +48,6 @@ fun Greeting(text: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     GitRebaseTheme {
-        Greeting("Hello world!")
+        Greeting(Person())
     }
 }
