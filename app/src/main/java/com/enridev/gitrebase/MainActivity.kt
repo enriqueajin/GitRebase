@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
                         person = person,
                     )
                     MyCoolNewFeature()
+                    AnotherCoolFeature()
                 }
             }
         }
@@ -52,6 +53,14 @@ fun GreetingText(person: MyRefactoredPerson, modifier: Modifier = Modifier) {
 fun MyCoolNewFeature(modifier: Modifier = Modifier) {
     Text(
         text = "This is a cool new feature!",
+        modifier = modifier
+    )
+}
+
+@Composable
+fun AnotherCoolFeature(modifier: Modifier = Modifier) {
+    Text(
+        text = "Another cool feature!",
         modifier = modifier
     )
 }
