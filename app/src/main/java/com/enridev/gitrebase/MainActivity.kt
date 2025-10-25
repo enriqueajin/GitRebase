@@ -23,7 +23,8 @@ class MainActivity : ComponentActivity() {
                     val person = Person(
                         name = "Enrique",
                         age = 30,
-                        email = "enrique@enridev.com"
+                        email = "enrique@enridev.com",
+                        isEnabled = false
                     )
                     Greeting(
                         modifier = Modifier.padding(innerPadding),
@@ -47,7 +48,13 @@ fun Greeting(person: Person, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
+    val person = Person(
+        name = "Enrique",
+        age = 30,
+        email = "enrique@enridev.com",
+        isEnabled = false
+    )
     GitRebaseTheme {
-        Greeting(Person())
+        Greeting(person)
     }
 }
