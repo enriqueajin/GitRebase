@@ -30,6 +30,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding),
                         person = person,
                     )
+                    MyCoolNewFeature()
                 }
             }
         }
@@ -45,6 +46,14 @@ fun Greeting(person: MyRefactoredPerson, modifier: Modifier = Modifier) {
         )
     }
 
+}
+
+@Composable
+fun MyCoolNewFeature(modifier: Modifier = Modifier) {
+    Text(
+        text = "This is a cool new feature!",
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
