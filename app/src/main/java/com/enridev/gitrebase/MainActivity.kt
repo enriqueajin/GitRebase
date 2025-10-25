@@ -20,10 +20,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             GitRebaseTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        modifier = Modifier.padding(innerPadding),
-                        text = "Hello world!",
+                    val person = MyRefactoredPerson(
+                        myNameRefactored = "Enrique",
+                        myAgeRefactored = 30,
+                        myEmailRefactored = "enrique@enridev.com",
+                        isEnabled = false
                     )
+                    GreetingText(
+                        modifier = Modifier.padding(innerPadding),
+                        person = person,
+                    )
+                    MyCoolNewFeature()
+                    AnotherCoolFeature()
                 }
             }
         }
@@ -31,18 +39,42 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(text: String, modifier: Modifier = Modifier) {
+fun GreetingText(person: MyRefactoredPerson, modifier: Modifier = Modifier) {
+    with(person) {
+        Text(
+            text = "Hello, my name is $myNameRefactored I'm $person.myAgeRefactored and my email is $myEmailRefactored",
+            modifier = modifier
+        )
+    }
+
+}
+
+@Composable
+fun MyCoolNewFeature(modifier: Modifier = Modifier) {
     Text(
-        text = text,
+        text = "This is a cool new feature!",
         modifier = modifier
     )
+}
 
+@Composable
+fun AnotherCoolFeature(modifier: Modifier = Modifier) {
+    Text(
+        text = "Another cool feature!",
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
+    val person = MyRefactoredPerson(
+        myNameRefactored = "Enrique",
+        myAgeRefactored = 30,
+        myEmailRefactored = "enrique@enridev.com",
+        isEnabled = false
+    )
     GitRebaseTheme {
-        Greeting("Hello world!")
+        GreetingText(person)
     }
 }
